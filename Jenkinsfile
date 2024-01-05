@@ -8,13 +8,16 @@ pipeline {
         AWS_SECRET_ACCESS_KEY = "wARqpwXO7TNYnrpfgg6QyR4QasDA6q+Gsg75P3FW"
     }
 
-   agent {label 'slave-1'}
+   agent  any
     stages {
         stage('checkout') {
             steps {
-                      git "https://github.com/deepaksidda/Terraform-Jenkins.git"
-                        
-                   }
+                 script{
+                        dir("terraform")
+                        {
+                            git "https://github.com/deepaksidda/Terraform-Jenkins.git"
+                        }
+                    }
                 }
             }
 
@@ -47,3 +50,5 @@ pipeline {
             }
         }
     }
+
+  }
