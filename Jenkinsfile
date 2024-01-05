@@ -18,14 +18,14 @@ pipeline {
                 }
             }
 
-     /*   stage('Plan') {
+        stage('Plan') {
             steps {
                 sh '/home/ubuntu/jenkins/workspace/tef/ ; terraform init'
                 sh "/home/ubuntu/jenkins/workspace/tef/ ; terraform plan -out tfplan"
                 sh '/home/ubuntu/jenkins/workspace/tef/ ; terraform show -no-color tfplan > tfplan.txt'
             }
         }
-        stage('Approval') {
+      /*  stage('Approval') {
            when {
                not {
                    equals expected: true, actual: params.autoApprove
