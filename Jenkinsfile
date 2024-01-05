@@ -8,20 +8,17 @@ pipeline {
         AWS_SECRET_ACCESS_KEY = "wARqpwXO7TNYnrpfgg6QyR4QasDA6q+Gsg75P3FW"
     }
 
-   agent  any
+   agent  { label 'slave-1' }
     stages {
         stage('checkout') {
             steps {
-                 script{
-                        dir("terraform")
-                        {
-                            git "https://github.com/deepaksidda/Terraform-Jenkins.git"
+                       git "https://github.com/deepaksidda/Terraform-Jenkins.git"
                         }
-                    }
+                    
                 }
             }
 
-        stage('Plan') {
+     /*   stage('Plan') {
             steps {
                 sh '/home/ubuntu/jenkins/workspace/tef/ ; terraform init'
                 sh "/home/ubuntu/jenkins/workspace/tef/ ; terraform plan -out tfplan"
@@ -50,5 +47,5 @@ pipeline {
             }
         }
     }
-
+*/
   }
