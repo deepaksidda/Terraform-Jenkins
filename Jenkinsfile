@@ -18,7 +18,7 @@ pipeline {
                 }
             }
 
-        stage('Plan') {
+        stage('terra-plan') {
             steps {
                 sh "/home/ubuntu/jenkins/workspace/tef/ ; terraform init"
                 sh "/home/ubuntu/jenkins/workspace/tef/ ; terraform plan -out tfplan"
